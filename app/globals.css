@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
+/* 🎨 GLOBAL TRADERS PALETTE */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F5F5F5;
+
+  --dark: #30303A;
+  /* main */
+  --gray: #676061;
+  --soft-gray: #8D8B8D;
+
+  --primary: #526FAE;
+  /* steel blue */
+  --accent: #B10C2A;
+  /* optional red */
+
+  --text-main: #1E1E2F;
+  --text-muted: #676061;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* 🌍 GLOBAL */
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-main);
+}
+
+/* 💎 CARD (industrial clean) */
+.card {
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #E5E7EB;
+  padding: 20px;
+}
+
+/* ✨ HOVER */
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* 🔘 BUTTON (primary) */
+.btn {
+  background: var(--primary);
+  color: white;
+  border-radius: 6px;
+}
+
+.btn:hover {
+  background: #3f5c94;
+}
+
+/* 🔘 DARK BUTTON */
+.btn-dark {
+  background: var(--dark);
+  color: white;
+}
+
+.btn-dark:hover {
+  background: #1f1f26;
+}
+
+/* 🧾 INPUT */
+.input4 {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+
+  background: #FFFFFF;
+  border: 1px solid #D1D5DB;
+
+  font-size: 14px;
+  color: var(--text-main);
+
+  outline: none;
+}
+
+/* focus */
+.input4:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(82, 111, 174, 0.2);
+}
+
+/* ✨ SMOOTH */
+* {
+  transition: all 0.2s ease;
 }
