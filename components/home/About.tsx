@@ -4,87 +4,92 @@ import { motion } from "framer-motion";
 
 export default function About() {
     return (
-        <section className="px-6 md:px-20 py-20 bg-[#F5F5F5]">
+        <section className="px-6 md:px-20 py-24 bg-gradient-to-r from-[#F4C47C]/20 via-transparent to-[#E1A49A]/20">
 
             <div className="grid md:grid-cols-2 gap-16 items-center">
 
-                {/* IMAGE */}
+                {/* IMAGE SIDE */}
                 <motion.div
-                    initial={{ opacity: 0, x: -40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
                     className="relative"
                 >
+
+                    {/* MAIN IMAGE */}
                     <img
-                        src="/images/construction.jpg"
-                        className="w-full h-[420px] object-cover rounded-md"
+                        src="/images/coconut2.jpg"
+                        className="w-full h-[450px] object-cover rounded-2xl shadow-lg"
                     />
 
-                    {/* FLOAT CARD */}
-                    <div className="absolute bottom-6 left-6 bg-white px-5 py-3 shadow text-sm">
-                        Trusted Material Supplier
+                    {/* FLOATING CARD */}
+                    <div className="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md p-5 rounded-xl shadow-md border border-white/40">
+                        <p className="text-sm text-[#2A1A17] font-medium">
+                            Trusted Global Export Partner
+                        </p>
                     </div>
+
                 </motion.div>
 
-                {/* CONTENT */}
+                {/* CONTENT SIDE */}
                 <motion.div
-                    initial={{ opacity: 0, x: 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
 
                     {/* BADGE */}
-                    <p className="text-xs tracking-widest text-[#526FAE] mb-4">
+                    <p className="text-xs tracking-[0.3em] text-[#A02D27] mb-4">
                         ABOUT US
                     </p>
 
                     {/* TITLE */}
-                    <h2 className="text-3xl md:text-4xl font-semibold text-[#30303A] leading-snug">
-                        Building Strong Foundations <br />
-                        With Quality Materials
+                    <h2 className="text-3xl md:text-4xl font-semibold text-[#2A1A17] leading-snug">
+                        Connecting Farms to <br />
+                        Global Markets
                     </h2>
 
                     {/* TEXT */}
-                    <p className="mt-5 text-[#676061] text-sm md:text-base leading-relaxed max-w-md">
-                        Global Traders specializes in supplying high-quality construction
-                        materials including M-Sand, tiles, gravel stones, marbles, and
-                        hollow bricks. We support builders, contractors, and developers
-                        with reliable materials and timely delivery.
+                    <p className="mt-5 text-[#6C5547] text-sm md:text-base leading-relaxed max-w-md">
+                        We specialize in exporting premium coconut-based products and natural
+                        goods to international markets. With a strong sourcing network and
+                        reliable logistics, we ensure consistent quality and smooth global delivery.
                     </p>
 
                     {/* FEATURES */}
-                    <div className="mt-6 space-y-3 text-sm text-[#30303A]">
-                        <div>✔ High-quality materials</div>
-                        <div>✔ Reliable supply chain</div>
-                        <div>✔ On-time delivery</div>
+                    <div className="mt-6 space-y-3 text-sm text-[#2A1A17]">
+                        <div>✔ Direct farm sourcing</div>
+                        <div>✔ International export standards</div>
+                        <div>✔ Reliable logistics & delivery</div>
                     </div>
 
                     {/* STATS */}
                     <div className="grid grid-cols-3 gap-6 mt-10">
 
-                        <div className="text-center">
-                            <h3 className="text-xl font-semibold text-[#526FAE]">200+</h3>
-                            <p className="text-xs text-[#676061]">Projects</p>
+                        <div>
+                            <h3 className="text-xl font-semibold text-[#A02D27]">50+</h3>
+                            <p className="text-xs text-[#6C5547]">Clients</p>
                         </div>
 
-                        <div className="text-center">
-                            <h3 className="text-xl font-semibold text-[#526FAE]">5+</h3>
-                            <p className="text-xs text-[#676061]">Years</p>
+                        <div>
+                            <h3 className="text-xl font-semibold text-[#A02D27]">15+</h3>
+                            <p className="text-xs text-[#6C5547]">Countries</p>
                         </div>
 
-                        <div className="text-center">
-                            <h3 className="text-xl font-semibold text-[#526FAE]">100%</h3>
-                            <p className="text-xs text-[#676061]">Quality</p>
+                        <div>
+                            <h3 className="text-xl font-semibold text-[#A02D27]">100%</h3>
+                            <p className="text-xs text-[#6C5547]">Quality</p>
                         </div>
 
                     </div>
 
                     {/* CTA */}
-                    <button className="mt-8 bg-[#526FAE] text-white px-6 py-3 text-sm hover:opacity-90 transition">
+                    <button className="mt-8 bg-[#A02D27] text-white px-6 py-3 text-sm rounded-md hover:opacity-90 transition">
                         Learn More
                     </button>
 
                 </motion.div>
+
             </div>
         </section>
     );

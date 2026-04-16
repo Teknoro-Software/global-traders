@@ -4,79 +4,82 @@ import { motion } from "framer-motion";
 
 const categories = [
     {
-        name: "M-Sand",
-        image: "/images/msand.jpg",
+        name: "Fresh Coconut",
+        image: "/images/coconut.jpg",
     },
     {
-        name: "Tiles",
-        image: "/images/tiles.webp",
+        name: "Coconut Oil",
+        image: "/images/oil.jpg",
     },
     {
-        name: "Gravel Stones",
-        image: "/images/gravel.jpg",
+        name: "Coconut Powder",
+        image: "/images/powder.jpg",
     },
     {
-        name: "Marble",
-        image: "/images/marble.jpeg",
+        name: "Coconut Shell",
+        image: "/images/shell.jpg",
     },
     {
-        name: "Hollow Bricks",
-        image: "/images/hollow.jpg",
+        name: "Coir Products",
+        image: "/images/coir.jpg",
     },
     {
-        name: "Bulk Supply",
-        image: "/images/construction.jpg",
+        name: "Bulk Export",
+        image: "/images/export.jpg",
     },
 ];
 
 export default function Categories() {
     return (
-        <section className="px-6 md:px-20 py-20 bg-[#F5F5F5]">
+        <section className="px-6 md:px-20 py-2 bg-[#F4C47C]/20">
 
-            {/* TITLE */}
-            <div className="mb-14">
-                <h2 className="text-3xl md:text-4xl font-semibold text-[#30303A]">
-                    Materials We Supply
+            {/* HEADER */}
+            <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-semibold text-[#2A1A17]">
+                    Our Product Categories
                 </h2>
-                <p className="text-sm text-[#676061] mt-2">
-                    High-quality construction materials for all types of projects
+                <p className="text-sm text-[#6C5547] mt-3">
+                    Premium coconut products crafted for global markets
                 </p>
             </div>
 
             {/* GRID */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
 
                 {categories.map((cat, i) => (
                     <motion.div
                         key={i}
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.08 }}
                         viewport={{ once: true }}
                         className="group cursor-pointer"
                     >
 
-                        {/* IMAGE */}
-                        <div className="relative overflow-hidden rounded-md">
+                        {/* CARD */}
+                        <div className="relative overflow-hidden rounded-xl shadow-md">
 
+                            {/* IMAGE */}
                             <img
                                 src={cat.image}
-                                className="w-full h-[220px] object-cover group-hover:scale-105 transition duration-500"
+                                className="w-full h-[240px] object-cover group-hover:scale-110 transition duration-500"
                             />
 
-                            {/* DARK OVERLAY */}
-                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-4">
-                                <span className="text-white text-sm">
-                                    View Materials →
-                                </span>
+                            {/* OVERLAY */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80"></div>
+
+                            {/* TEXT OVER IMAGE */}
+                            <div className="absolute bottom-4 left-4 text-white">
+                                <h3 className="text-lg font-medium">
+                                    {cat.name}
+                                </h3>
+
+                                <p className="text-xs mt-1 opacity-80">
+                                    View Products →
+                                </p>
                             </div>
 
                         </div>
-
-                        {/* TEXT */}
-                        <h3 className="mt-3 text-[#30303A] font-medium text-sm">
-                            {cat.name}
-                        </h3>
 
                     </motion.div>
                 ))}

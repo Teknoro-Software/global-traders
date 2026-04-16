@@ -5,7 +5,7 @@ import { MapPin, Mail, Phone } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <div className="bg-[#F5F5F5] px-6 md:px-24 pt-24 pb-20">
+    <div className="bg-gradient-to-r from-[#F4C47C]/20 via-transparent to-[#E1A49A]/20 px-6 md:px-24 pt-24 pb-20">
 
       {/* HEADER */}
       <motion.div
@@ -13,14 +13,18 @@ export default function ContactPage() {
         animate={{ opacity: 1, y: 0 }}
         className="max-w-3xl mb-16"
       >
-        <h1 className="text-4xl md:text-5xl font-medium text-[#30303A] leading-tight">
-          Let’s Discuss Your{" "}
-          <span className="text-[#526FAE]">Construction Needs</span>
+        <p className="text-xs tracking-[0.3em] text-[#A02D27] mb-3">
+          CONTACT
+        </p>
+
+        <h1 className="text-4xl md:text-5xl font-semibold text-[#2A1A17] leading-tight">
+          Let’s Build Global <br />
+          <span className="text-[#A02D27]">Business Together</span>
         </h1>
 
-        <p className="mt-6 text-[#676061] text-base">
-          Need M-Sand, tiles, gravel, marble, or bricks?
-          Contact us for bulk supply and reliable delivery.
+        <p className="mt-6 text-[#6C5547] text-base">
+          Looking for reliable export partners? Get in touch with us for bulk orders,
+          pricing, and global shipping details.
         </p>
       </motion.div>
 
@@ -31,19 +35,19 @@ export default function ContactPage() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          className="space-y-10"
+          className="space-y-8"
         >
 
           {/* LOCATION */}
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-md bg-[#526FAE]/10 flex items-center justify-center">
-              <MapPin className="w-5 h-5 text-[#526FAE]" />
+            <div className="w-12 h-12 rounded-md bg-[#A02D27]/10 flex items-center justify-center">
+              <MapPin className="w-5 h-5 text-[#A02D27]" />
             </div>
             <div>
-              <h4 className="font-medium text-[#30303A]">
+              <h4 className="font-medium text-[#2A1A17]">
                 Location
               </h4>
-              <p className="text-[#676061] text-sm mt-1">
+              <p className="text-[#6C5547] text-sm mt-1">
                 Kerala, India
               </p>
             </div>
@@ -51,38 +55,38 @@ export default function ContactPage() {
 
           {/* EMAIL */}
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-md bg-[#526FAE]/10 flex items-center justify-center">
-              <Mail className="w-5 h-5 text-[#526FAE]" />
+            <div className="w-12 h-12 rounded-md bg-[#A02D27]/10 flex items-center justify-center">
+              <Mail className="w-5 h-5 text-[#A02D27]" />
             </div>
             <div>
-              <h4 className="font-medium text-[#30303A]">
+              <h4 className="font-medium text-[#2A1A17]">
                 Email
               </h4>
-              <p className="text-[#676061] text-sm mt-1">
-                support@globaltraders.com
+              <p className="text-[#6C5547] text-sm mt-1">
+                support@yourcompany.com
               </p>
             </div>
           </div>
 
           {/* PHONE */}
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-md bg-[#526FAE]/10 flex items-center justify-center">
-              <Phone className="w-5 h-5 text-[#526FAE]" />
+            <div className="w-12 h-12 rounded-md bg-[#A02D27]/10 flex items-center justify-center">
+              <Phone className="w-5 h-5 text-[#A02D27]" />
             </div>
             <div>
-              <h4 className="font-medium text-[#30303A]">
-                Phone
+              <h4 className="font-medium text-[#2A1A17]">
+                Phone / WhatsApp
               </h4>
-              <p className="text-[#676061] text-sm mt-1">
+              <p className="text-[#6C5547] text-sm mt-1">
                 +91 9544250000
               </p>
             </div>
           </div>
 
           {/* INFO BOX */}
-          <div className="bg-white p-6 border border-gray-200">
-            <p className="text-sm text-[#676061]">
-              We respond quickly to all construction material inquiries and bulk orders.
+          <div className="bg-white/80 backdrop-blur-xl border border-white/40 p-6 rounded-xl shadow-sm">
+            <p className="text-sm text-[#6C5547]">
+              We typically respond within 24 hours for all international inquiries and bulk export requests.
             </p>
           </div>
 
@@ -92,11 +96,11 @@ export default function ContactPage() {
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          className="bg-white p-8 border border-gray-200"
+          className="bg-white/80 backdrop-blur-xl border border-white/40 p-8 rounded-xl shadow-sm"
         >
 
-          <h2 className="text-xl font-medium text-[#30303A] mb-6">
-            Request a Quote
+          <h2 className="text-xl font-medium text-[#2A1A17] mb-6">
+            Send Inquiry
           </h2>
 
           <form className="space-y-5">
@@ -110,19 +114,19 @@ export default function ContactPage() {
             {/* EMAIL + PHONE */}
             <div className="grid grid-cols-2 gap-4">
               <input className="input4" placeholder="Email" />
-              <input className="input4" placeholder="Phone" />
+              <input className="input4" placeholder="Phone / WhatsApp" />
             </div>
 
             {/* MESSAGE */}
             <textarea
               rows={5}
               className="input4 resize-none"
-              placeholder="Enter required materials and quantity..."
+              placeholder="Product details, quantity, destination country..."
             />
 
             {/* BUTTON */}
-            <button className="w-full bg-[#30303A] text-white py-3 text-sm hover:bg-black transition">
-              Send Request
+            <button className="w-full bg-[#A02D27] text-white py-3 rounded-md text-sm hover:opacity-90 transition">
+              Send Inquiry
             </button>
 
           </form>

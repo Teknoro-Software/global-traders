@@ -55,39 +55,46 @@ export default function CheckoutPage() {
     };
 
     return (
-        <div className="bg-[#F5F5F5] px-6 md:px-24 pt-28 pb-20">
+        <div className="bg-gradient-to-r from-[#F4C47C]/20 via-transparent to-[#E1A49A]/20 min-h-screen px-6 md:px-24 pt-28 pb-20">
 
             {/* HEADER */}
-            <div className="mb-10">
-                <h1 className="text-3xl font-semibold text-[#30303A]">
-                    Request a Quote
+            <div className="text-center mb-14">
+                <h1 className="text-3xl md:text-4xl font-semibold text-[#2A1A17]">
+                    Export Inquiry
                 </h1>
+                <p className="text-sm text-[#6C5547] mt-2">
+                    Submit your requirements and our team will contact you
+                </p>
             </div>
 
             {cart.length === 0 ? (
                 <div className="text-center mt-40">
-                    <p className="text-[#676061] mb-4">
-                        No materials selected
+                    <p className="text-[#6C5547] mb-6">
+                        No products selected
                     </p>
 
                     <button
                         onClick={() => router.push("/shop")}
-                        className="bg-[#526FAE] text-white px-6 py-3 text-sm"
+                        className="px-6 py-3 bg-[#A02D27] text-white text-sm rounded-md"
                     >
-                        Browse Materials
+                        Browse Products
                     </button>
                 </div>
             ) : (
                 <div className="grid md:grid-cols-2 gap-16">
 
-                    {/* LEFT */}
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                    {/* LEFT - FORM */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="bg-white/80 backdrop-blur-xl border border-white/40 rounded-xl p-8 shadow-sm"
+                    >
 
-                        <h2 className="text-sm mb-6 text-[#676061]">
-                            Delivery Details
+                        <h2 className="text-sm mb-6 text-[#6C5547]">
+                            Buyer Details
                         </h2>
 
-                        <form className="space-y-4 bg-white border border-gray-200 p-6">
+                        <div className="space-y-4">
 
                             {/* NAME */}
                             <div className="grid grid-cols-2 gap-4">
@@ -102,91 +109,75 @@ export default function CheckoutPage() {
                                             }
                                             className={`input4 ${errors[field] && "border-red-500"}`}
                                         />
-                                        {errors[field] && (
-                                            <p className="text-xs text-red-500 mt-1">
-                                                {errors[field]}
-                                            </p>
-                                        )}
                                     </div>
                                 ))}
                             </div>
 
-                            {/* ADDRESS */}
                             <input
                                 name="address"
                                 value={form.address}
                                 onChange={handleChange}
-                                placeholder="Project Location"
-                                className={`input4 ${errors.address && "border-red-500"}`}
+                                placeholder="Delivery Location / Country"
+                                className="input4"
                             />
 
-                            {/* CITY */}
                             <div className="grid grid-cols-3 gap-4">
                                 {["city", "state", "pin"].map((field) => (
-                                    <div key={field}>
-                                        <input
-                                            name={field}
-                                            value={form[field as keyof typeof form]}
-                                            onChange={handleChange}
-                                            placeholder={
-                                                field === "pin"
-                                                    ? "PIN Code"
-                                                    : field.charAt(0).toUpperCase() + field.slice(1)
-                                            }
-                                            className={`input4 ${errors[field] && "border-red-500"}`}
-                                        />
-                                        {errors[field] && (
-                                            <p className="text-xs text-red-500 mt-1">
-                                                {errors[field]}
-                                            </p>
-                                        )}
-                                    </div>
+                                    <input
+                                        key={field}
+                                        name={field}
+                                        value={form[field as keyof typeof form]}
+                                        onChange={handleChange}
+                                        placeholder={
+                                            field === "pin"
+                                                ? "ZIP"
+                                                : field.charAt(0).toUpperCase() + field.slice(1)
+                                        }
+                                        className="input4"
+                                    />
                                 ))}
                             </div>
 
-                            {/* PHONE */}
                             <input
                                 name="phone"
                                 value={form.phone}
                                 onChange={handleChange}
-                                placeholder="Phone"
-                                className={`input4 ${errors.phone && "border-red-500"}`}
+                                placeholder="Phone / WhatsApp"
+                                className="input4"
                             />
 
-                            {/* EMAIL */}
                             <input
                                 name="email"
                                 value={form.email}
                                 onChange={handleChange}
                                 placeholder="Email"
-                                className={`input4 ${errors.email && "border-red-500"}`}
+                                className="input4"
                             />
 
                             <textarea
                                 rows={4}
-                                placeholder="Additional requirements (optional)"
+                                placeholder="Product details, quantity, packaging..."
                                 className="input4"
                             />
 
-                        </form>
+                        </div>
                     </motion.div>
 
-                    {/* RIGHT */}
+                    {/* RIGHT - SUMMARY */}
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="bg-white border border-gray-200 p-8 h-fit"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="bg-white/80 backdrop-blur-xl border border-white/40 rounded-xl p-8 shadow-sm h-fit"
                     >
 
-                        <h2 className="text-sm mb-6 text-[#30303A]">
-                            Selected Materials
+                        <h2 className="text-sm mb-6 text-[#2A1A17]">
+                            Inquiry Summary
                         </h2>
 
-                        {/* ITEMS */}
                         <div className="space-y-3 mb-6">
                             {cart.map((item) => (
                                 <div key={item.id} className="flex justify-between text-sm">
-                                    <span className="text-[#676061]">
+                                    <span className="text-[#6C5547]">
                                         {item.name} × {item.qty}
                                     </span>
                                     <span>
@@ -196,20 +187,18 @@ export default function CheckoutPage() {
                             ))}
                         </div>
 
-                        {/* TOTAL */}
                         <div className="flex justify-between border-t pt-4 mb-8 text-sm">
                             <span>Total Estimate</span>
-                            <span className="font-medium">
+                            <span className="font-semibold">
                                 ₹{total.toLocaleString()}
                             </span>
                         </div>
 
-                        {/* BUTTON */}
                         <button
                             onClick={handleSubmit}
-                            className="w-full bg-[#30303A] text-white py-3 text-sm hover:bg-black transition"
+                            className="w-full bg-[#A02D27] text-white py-3 rounded-md text-sm hover:opacity-90 transition"
                         >
-                            Submit Request
+                            Send Inquiry
                         </button>
 
                     </motion.div>
