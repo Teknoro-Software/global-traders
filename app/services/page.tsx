@@ -50,7 +50,7 @@ export default function ServicesPage() {
       <section className="relative h-[60vh] flex items-center px-6 md:px-20 text-white">
 
         <img
-          src="/images/coconut-banner.jpg"
+          src="/images/coco.jpg"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
